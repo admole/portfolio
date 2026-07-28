@@ -1,11 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import Container from "@components/Container.astro";
+import Typewriter from "@components/Typewriter.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import { dateRange } from "@lib/utils";
 import { SITE, HOME, SOCIALS } from "@consts";
+import "../styles/global.css";
 
 const blog = (await getCollection("blog"))
   .filter(post => !post.data.draft)
@@ -31,116 +33,130 @@ const work = await Promise.all(
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+
+  <img
+    src="/banner.png"
+    alt="wind turbines banner"
+    class="w-full object-cover -mt-16"
+  />
+
   <Container>
+      <!-- <div class="space-y-12"> -->
+      <div class="space-y-12 mt-10">
+
+	  <article>
+      <section>
+
     <!-- Name -->
-    <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
-      Andrew Mole
-    </h1>
+    <Typewriter
+      text="Andrew Mole"
+      speed={80}
+      class="text-4xl md:text-4xl font-semibold dark:text-white"
+    />
 
     <!-- Role -->
-    <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
-      Applied scientist specialising in combining machine learning with large-scale physical simulation.
+    <p class="animate">
+    <!-- Modelling and Simulation Engineer specialising in AI-enhanced workflows for large-scale physical simulations. Passionate about developing advanced numerical solutions to solve high-impact, complex, engineering challenges in the energy transition. My work focuses on: -->
+    Modelling and Simulation Engineer building AI-enhanced workflows for large-scale physical simulations.
+    I develop numerical and machine learning methods for engineering challenges, focussing on:
     </p>
 
-    <!-- Credibility line -->
-    <p class="mt-4 text-sm text-slate-500 dark:text-slate-400">
-      Imperial College London · PhD (University of Manchester) · CFD · Multi-fidelity modelling · HPC systems
-    </p>
+		<ul class="mt-6 space-y-2 text-slate-700 dark:text-slate-300">
+
+		  <li class="flex gap-2 animate">
+			<span class="text-sky-500">›</span>
+			Bayesian optimisation for simulation-based design
+		  </li>
+
+		  <li class="flex gap-2 animate">
+			<span class="text-sky-500">›</span>
+			Physics-aware machine learning
+		  </li>
+
+		  <li class="flex gap-2 animate">
+			<span class="text-sky-500">›</span>
+			Multi-fidelity learning approaches
+		  </li>
+
+		  <li class="flex gap-2 animate">
+			<span class="text-sky-500">›</span>
+			Reinforcement learning for control in chaotic systems
+		  </li>
+
+		  <li class="flex gap-2 animate">
+			<span class="text-sky-500">›</span>
+			HPC-enabled large-scale simulations
+		  </li>
           
+          <li class="flex gap-2 animate">
+			<span class="text-sky-500">›</span>
+			Technology for the energy transition
+          </li>
+		</ul>
 
-		<p class="animate gap-2">
-          I build machine learning systems for complex physical simulations, focusing on:
-          </p>
-
-		<p class="animate">
-
-<ul class="mt-4 space-y-2 text-slate-700 dark:text-slate-300">
-  <li class="flex gap-2">
-    <span class="text-sky-500">›</span>
-    Bayesian optimisation for simulation-based design
-  </li>
-
-  <li class="flex gap-2">
-    <span class="text-sky-500">›</span>
-    Physics-aware machine learning
-  </li>
-
-  <li class="flex gap-2">
-    <span class="text-sky-500">›</span>
-    Multi-fidelity learning
-  </li>
-
-  <li class="flex gap-2">
-    <span class="text-sky-500">›</span>
-    Reinforcement learning for control in chaotic systems
-  </li>
-
-  <li class="flex gap-2">
-    <span class="text-sky-500">›</span>
-    HPC-enabled large-scale simulation campaigns
-  </li>
-</ul>
-
-        
-		<p class="animate space-y-6">
-		  Current focus: ML-driven optimisation of wind farm systems.
-		</p>
 
 	  </article>
       </section>
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Latest posts
-          </h5>
-          <Link href="/blog">
-            See all posts
-          </Link>
-        </div>
-        <ul class="flex flex-col gap-4">
-          {blog.map(post => (
-            <li>
-              <ArrowCard entry={post} />
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Work Experience
-          </h5>
+            <h2 class="text-2xl font-semibold tracking-tight text-black dark:text-white">
+            Recent Work
+          </h2>
           <Link href="/work">
             See all work
           </Link>
         </div>
-        <ul class="flex flex-col space-y-4">
-          {work.map(entry => (
-            <li>
-              <div class="text-sm opacity-75">
-                {dateRange(entry.data.dateStart, entry.data.dateEnd)}
-              </div>
-              <div class="font-semibold text-black dark:text-white">
-                {entry.data.company}
-              </div>
-              <div class="text-sm opacity-75">
-                {entry.data.role}
-              </div>
-              <article>
-                <entry.Content />
-              </article>
-            </li>
-          ))}
-        </ul>
+
+<ul class="flex flex-col">
+
+  {work.map((entry, index) => (
+    <li class="relative pl-10 pb-8">
+
+      <!-- Timeline dot -->
+      <div
+        class="absolute left-0 top-2 h-2.5 w-2.5 rounded-full
+               bg-slate-500"
+      />
+
+      <!-- Timeline line -->
+      {index < work.length  && (
+        <div
+          class="absolute left-[4px] top-6 -bottom-0
+                 border-l-2 border-dashed
+                 border-slate-500 dark:border-slate-700"
+        />
+      )}
+
+      <div class="text-sm text-slate-500 dark:text-slate-400">
+        {dateRange(entry.data.dateStart, entry.data.dateEnd)}
+      </div>
+
+
+      <div class="mt-1 text-lg font-semibold text-black dark:text-white">
+        <Link href={`/work#${entry.slug}`}>
+		<!-- <Link href="/work#${entry.slug}" class="mt-1 text-lg font-semibold text-black dark:text-white"> -->
+	    	{entry.data.company}
+	    </Link>
+	  </div>
+
+
+      <div class="text-slate-600 dark:text-slate-300">
+        {entry.data.role}
+      </div>
+
+    </li>
+  ))}
+
+</ul>
+
       </section>
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Recent projects
-          </h5>
+          <h2 class="text-2xl font-semibold tracking-tight text-black dark:text-white">
+            Recent Projects
+          </h2>
           <Link href="/projects">
             See all projects
           </Link>
@@ -153,17 +169,36 @@ const work = await Promise.all(
           ))}
         </ul>
       </section>
+      
+      <!-- <section class="animate space-y-6"> -->
+      <!--   <div class="flex flex-wrap gap-y-2 items-center justify-between"> -->
+      <!--     <h2 class="text-2xl font-semibold tracking-tight text-black dark:text-white"> -->
+      <!--       Latest Posts -->
+      <!--     </h2> -->
+      <!--     <Link href="/blog"> -->
+      <!--       See all posts -->
+      <!--     </Link> -->
+      <!--   </div> -->
+      <!--   <ul class="flex flex-col gap-4"> -->
+      <!--     {blog.map(post => ( -->
+      <!--       <li> -->
+      <!--         <ArrowCard entry={post} /> -->
+      <!--       </li> -->
+      <!--     ))} -->
+      <!--   </ul> -->
+      <!-- </section> -->
+
 
       <section class="animate space-y-4">
-        <h5 class="font-semibold text-black dark:text-white">
-          Let's Connect
-        </h5>
-        <article>
-          <p>
-            If you want to get in touch with me about something or just to say hi,
-            reach out on social media or send me an email.
-          </p>
-        </article>
+        <h2 class="text-2xl font-semibold tracking-tight text-black dark:text-white">
+          Get In Touch
+        </h2>
+        <!-- <article> -->
+        <!--   <p> -->
+        <!--     If you want to get in touch with me , -->
+        <!--     reach out on social media or send me an email. -->
+        <!--   </p> -->
+        <!-- </article> -->
         <ul class="flex flex-wrap gap-2">
           {SOCIALS.map(SOCIAL => (
             <li class="flex gap-x-2 text-nowrap">

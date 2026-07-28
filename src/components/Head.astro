@@ -1,5 +1,4 @@
 ---
-import "../styles/global.css";
 import "@fontsource/inter/latin-400.css";
 import "@fontsource/inter/latin-600.css";
 import "@fontsource/lora/400.css";
@@ -182,5 +181,21 @@ function toggleTheme(dark) {
 
   document.addEventListener("DOMContentLoaded", () => init());
   document.addEventListener("astro:after-swap", () => init());
+
+// document.addEventListener("astro:after-swap", () => {
+//   init();
+
+//   const hash = window.location.hash;
+
+//   if (hash) {
+//     requestAnimationFrame(() => {
+//       document.querySelector(hash)?.scrollIntoView({
+//         behavior: "smooth",
+//         block: "start",
+//       });
+//     });
+//   }
+// });
+
   preloadTheme();
 </script>

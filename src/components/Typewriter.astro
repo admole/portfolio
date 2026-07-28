@@ -1,0 +1,76 @@
+---
+interface Props {
+  text: string;
+  speed?: number;
+  delay?: number;
+}
+
+const {
+  text,
+  speed = 60,
+  delay = 0,
+} = Astro.props;
+---
+
+<span
+  class={`typewriter ${Astro.props.class ?? ""}`}
+  data-text={text}
+  data-speed={speed}
+  data-delay={delay}
+></span>
+
+<style>
+  .typewriter {
+    font-family: "JetBrains Mono", monospace;
+    white-space: nowrap;
+  }
+
+  .typewriter::after {
+    content: "";
+    display: inline-block;
+    width: 0.08em;
+    height: 1em;
+    margin-left: 0.1em;
+    vertical-align: -0.1em;
+    background: currentColor;
+    animation: blink 0.8s infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  function initTypewriter(el) {
+    if (!el || el.dataset.initialized) return;
+
+    el.dataset.initialized = "true";
+
+    const text = el.dataset.text ?? "";
+    const speed = Number(el.dataset.speed ?? 60);
+    const delay = Number(el.dataset.delay ?? 0);
+
+    let i = 0;
+
+    setTimeout(() => {
+      const timer = setInterval(() => {
+        el.textContent = text.slice(0, i + 1);
+
+        i++;
+
+        if (i >= text.length) {
+          clearInterval(timer);
+        }
+      }, speed);
+    }, delay);
+  }
+
+  document.querySelectorAll(".typewriter").forEach(initTypewriter);
+
+  document.addEventListener("astro:after-swap", () => {
+    document.querySelectorAll(".typewriter").forEach(initTypewriter);
+  });
+</script>

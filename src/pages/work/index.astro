@@ -1,5 +1,7 @@
 ---
+import Typewriter from "@components/Typewriter.astro";
 import { getCollection } from "astro:content";
+import ArrowCard from "@components/ArrowCard.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import { dateRange } from "@lib/utils";
@@ -14,38 +16,102 @@ const work = await Promise.all(
     return { ...item, Content };
   })
 );
+
+const projects = await getCollection("projects");
 ---
+
 
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
   <Container>
     <div class="space-y-10">
-      <div class="animate font-semibold text-black dark:text-white">
-        Work
-      </div>
-      <ul class="flex flex-col space-y-4">
-        { 
-          work.map(entry => (
-            <li class="animate">
-              <div class="text-sm opacity-75">
-                {dateRange(entry.data.dateStart, entry.data.dateEnd)}
-              </div>
-              <div class="font-semibold text-black dark:text-white">
-                {entry.data.company}
-              </div>
-              <div class="text-sm opacity-75">
-                {entry.data.role}
-              </div>
-              <article>
-                <entry.Content />
-              </article>
-            </li>
-          ))
-        }
-      </ul>
-<!-- 
-      <ul class="animate flex flex-col gap-4">
+    <Typewriter
+      text="Work"
+      speed={120}
+      class="text-3xl md:text-4xl font-mono font-semibold tracking-tight text-black dark:text-white"
+    />
+      <!-- <h1 class="text-3xl md:text-4xl font-mono font-semibold tracking-tight text-black dark:text-white"> -->
+      <!--   Work -->
+      <!-- </h1> -->
 
-      </ul> -->
+
+<ul class="flex flex-col">
+
+  {work.map((entry, index) => {
+    const relatedProjects = projects.filter(project =>
+      entry.data.relatedProjects?.includes(project.slug)
+    );
+
+    return (
+      <li
+        id={entry.slug}
+        class="relative animate pl-12 pb-16 scroll-mt-32 space-y-3"
+        >
+
+        {/* Timeline dot */}
+        <div
+          class="absolute left-0 top-4 h-3 w-3 rounded-full
+                 bg-slate-500"
+        />
+
+        {/* Timeline line */}
+        {index < work.length  && (
+          <div
+            class="absolute left-[5px] top-4 -bottom-4
+                   border-l-2 border-dashed
+                   border-slate-500 dark:border-white-100"
+          />
+        )}
+
+        {/* Meta */}
+        <div class="space-y-1">
+          <div class="text-sm text-slate-500 dark:text-slate-400">
+            {dateRange(entry.data.dateStart, entry.data.dateEnd)}
+          </div>
+
+          <div class="text-xl font-semibold text-black dark:text-white">
+            {entry.data.company}
+          </div>
+
+          <div class="text-slate-600 dark:text-slate-300">
+            {entry.data.role}
+          </div>
+        </div>
+
+        {/* Description */}
+        <article class="mt-4 prose dark:prose-invert">
+          <entry.Content />
+        </article>
+
+        {/* Related Projects */}
+        {relatedProjects.length > 0 && (
+          <div class="mt-6 space-y-3">
+
+            <div class="text-xs uppercase tracking-wider
+                        text-slate-500 dark:text-slate-400">
+              Related Projects
+            </div>
+
+            <ul class="flex flex-col gap-4">
+              {relatedProjects.map(project => (
+                <li>
+                  <ArrowCard entry={project} />
+                </li>
+              ))}
+            </ul>
+
+          </div>
+        )}
+
+      </li>
+    );
+  })}
+
+</ul>
+
+
     </div>
   </Container>
 </PageLayout>
+
+
+
