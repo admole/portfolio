@@ -1,8 +1,9 @@
 ---
 company: "McLaren F1 Team"
 role: "CFD Methodology Intern"
-dateStart: "01/01/2020"
-dateEnd: "11/27/2022"
+dateStart: "07/01/2021"
+dateEnd: "10/10/2021"
+relatedProjects: ["f1_front_wing"]
 ---
 
-Voluptatem est quaerat voluptas praesentium ipsa dolorem dignissimos nulla ratione distinctio quae maiores eligendi nostrum? Quibusdam, debitis voluptatum, lorem ipsum dolor. Sit amet consectetur adipisicing elit. Iure illo neque tempora.
+Contributed to the development of advanced CFD workflows for ___Formula One___ aerodynamic design, including the integration of embedded LES into the design process, implementation of simulation infrastructure with CFD methodology and HPC teams, and automation of simulation pipelines using Python and Bash.
