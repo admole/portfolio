@@ -1,8 +1,10 @@
 ---
+import "../styles/global.css";
 import Head from "@components/Head.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import { SITE } from "@consts";
+import "katex/dist/katex.min.css";
 
 type Props = {
   title: string;
@@ -15,7 +17,7 @@ const { title, description } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
-    <Head title={`${title} | ${SITE.NAME}`} description={description} />
+  <Head title={`${title} | ${SITE.NAME}`} description={description} />
   </head>
   <body>
     <Header />
