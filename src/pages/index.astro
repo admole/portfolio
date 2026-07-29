@@ -35,7 +35,7 @@ const work = await Promise.all(
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
 
   <img
-    src="/src/assets/banner.png"
+    src=`${import.meta.env.BASE_URL}banner.png`
     alt="wind turbines banner"
     class="w-full object-cover -mt-16"
   />
@@ -103,7 +103,7 @@ const work = await Promise.all(
             <h2 class="text-2xl font-semibold tracking-tight text-black dark:text-white">
             Recent Work
           </h2>
-          <Link href="/work">
+          <Link href={`${import.meta.env.BASE_URL}work`}>
             See all work
           </Link>
         </div>
@@ -134,7 +134,7 @@ const work = await Promise.all(
 
 
       <div class="mt-1 text-lg font-semibold text-black dark:text-white">
-        <Link href={`/work#${entry.slug}`}>
+        <Link href={`${import.meta.env.BASE_URL}work#${entry.slug}`}>
 		<!-- <Link href="/work#${entry.slug}" class="mt-1 text-lg font-semibold text-black dark:text-white"> -->
 	    	{entry.data.company}
 	    </Link>
@@ -157,7 +157,7 @@ const work = await Promise.all(
           <h2 class="text-2xl font-semibold tracking-tight text-black dark:text-white">
             Recent Projects
           </h2>
-          <Link href="/projects">
+          <Link href={`${import.meta.env.BASE_URL}projects`}>
             See all projects
           </Link>
         </div>
@@ -175,7 +175,7 @@ const work = await Promise.all(
       <!--     <h2 class="text-2xl font-semibold tracking-tight text-black dark:text-white"> -->
       <!--       Latest Posts -->
       <!--     </h2> -->
-      <!--     <Link href="/blog"> -->
+      <!--     <Link href={`${import.meta.env.BASE_URL}blog`}> -->
       <!--       See all posts -->
       <!--     </Link> -->
       <!--   </div> -->
