@@ -6,7 +6,8 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
 export default defineConfig({
-  site: "https://astro-nano-demo.vercel.app",
+  site: "https://admole.github.io",
+  base: "/portfolio/",
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
