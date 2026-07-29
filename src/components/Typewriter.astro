@@ -3,17 +3,19 @@ interface Props {
   text: string;
   speed?: number;
   delay?: number;
+  class?: string;
 }
 
 const {
   text,
   speed = 60,
   delay = 0,
+  class: className = "",
 } = Astro.props;
 ---
 
 <span
-  class={`typewriter ${Astro.props.class ?? ""}`}
+  class={`typewriter ${className}`}
   data-text={text}
   data-speed={speed}
   data-delay={delay}
@@ -44,7 +46,7 @@ const {
 </style>
 
 <script>
-  function initTypewriter(el) {
+  function initTypewriter(el: HTMLElement) {
     if (!el || el.dataset.initialized) return;
 
     el.dataset.initialized = "true";
