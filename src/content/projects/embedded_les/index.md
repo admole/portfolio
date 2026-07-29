@@ -41,21 +41,7 @@ The computational domain is divided into two simulation regions:
 * **RANS region** – predicts the upstream flow efficiently.
 * **LES region** – resolves large turbulent structures where increased fidelity is required.
 
-Rather than changing turbulence models globally, the LES region is embedded within the RANS solution.
-
-```text
-Full-Domain RANS
-        ↓
-Extract Mean Flow Statistics
-        ↓
-Synthetic Turbulence Generation
-        ↓
-Embedded LES Region
-        ↓
-Resolved Turbulent Flow
-```
-
-This approach concentrates computational effort where it provides the greatest improvement in solution accuracy.
+Rather than changing turbulence models globally, the LES region is embedded within the RANS solution. This approach concentrates computational effort where it provides the greatest improvement in solution accuracy.
 
 ![ELES Diagram](/portfolio/ELES.png)
 
@@ -74,7 +60,7 @@ The upstream RANS solution provides:
 
 These quantities are used to initialise the LES region through an enhanced **Synthetic Eddy Method (SEM)**, allowing resolved turbulence to develop rapidly while maintaining consistency with the upstream solution.
 
-The methodology was implemented within **OpenFOAM**, providing a flexible framework for hybrid turbulence simulations.
+The methodology was implemented within [**OpenFOAM**](https://www.openfoam.com/), providing a flexible framework for hybrid turbulence simulations.
 
 ![SEM Diagram](/portfolio/sem.png)
 
@@ -84,7 +70,7 @@ The methodology was implemented within **OpenFOAM**, providing a flexible framew
 
 Two seperate instances of the OpenFOAM solver were used to solve the RANS and LES regions. These could be independently set up to use a combination of independent RANS or LES turbulence models and solver settings. 
 
-This requires a copling of the two  solvers which was implemented using the PreCICE coupling libary to exchange the required information between the solvers.
+This requires a copling of the two  solvers which was implemented using the [**PreCICE**](https://precice.org/) coupling libary to exchange the required information between the solvers.
 
 ![PreCICE Diagram](/portfolio/precice.png)
 
@@ -106,9 +92,6 @@ The study evaluated:
 
 The embedded LES accurately reproduced reference DNS statistics while demonstrating stable transition from the RANS inflow to fully resolved turbulence.
 
-### Figure Placeholder
-
-*Comparison of channel flow velocity and Reynolds stress profiles*
 ![ELES Channel](/portfolio/eles_channel.png)
 
 ---
@@ -176,11 +159,4 @@ This work demonstrates that Embedded LES offers an effective compromise between 
 
 The methodology provides a practical route towards higher-fidelity CFD for engineering applications involving separated turbulent flows, wake dynamics and bluff-body aerodynamics.
 
----
-
-## Research Outputs
-
-**Embedded Large Eddy Simulation Methodology Development**
-
-Research on hybrid RANS–LES coupling, synthetic turbulence generation and validation using turbulent channel flow and tandem wall-mounted cubes.
 

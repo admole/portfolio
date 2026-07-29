@@ -25,12 +25,7 @@ Traditional control strategies typically fall into two categories:
 * **Greedy control** – each turbine maximises its own power output.
 * **Static wake steering** – fixed yaw angles are optimised for a given wind condition.
 
-While static optimisation can improve performance, it cannot respond to:
-
-* Atmospheric turbulence
-* Transient wake interactions
-* Changing flow conditions
-* Dynamic turbine-to-turbine coupling
+While static optimisation can improve performance, it cannot respond to atmospheric turbulence or dynamic interactions between the turbine wakes.
 
 The goal of this project was to develop a controller capable of making continuous decisions based on the evolving flow field and coordinating all turbines simultaneously.
 
@@ -42,7 +37,7 @@ The goal of this project was to develop a controller capable of making continuou
 
 ### Reinforcement Learning
 
-The control problem was formulated as a **Markov Decision Process (MDP)**.
+The control problem was formulated as a **Markov Decision Process**.
 
 At each control interval:
 
@@ -67,10 +62,8 @@ The simulations used:
 * Three aligned 5 MW turbines
 * Turbine diameter of 126 m
 * Atmospheric boundary layer inflow
-* Fully resolved wake interactions
-* Dynamic turbulent flow structures
 
-The LES environment was implemented using the **Winc3D** framework, enabling turbulence-resolving simulations of wind farm wake dynamics.
+The LES environment was implemented using the [**Winc3D**](https://www.turbulencesimulation.com/uploads/5/8/7/2/58724623/2020_laizet_we.pdf) framework, enabling turbulence-resolving simulations of wind farm wake dynamics.
 
 ---
 
@@ -78,45 +71,29 @@ The LES environment was implemented using the **Winc3D** framework, enabling tur
 
 ### State Representation
 
-The controller observed the wind farm using velocity measurements distributed throughout the flow field.
-
-Key characteristics:
-
-* 32 parallel training environments
-* Velocity sensor observations
-* Continuous flow-state information
-* Partial observation of the turbulent flow field
+The controller observes the wind farm state using wind velocity measurements distributed throughout the flow field which give a partial observation of the turbulent flow field. These are representative of the measurements available through LiDAR Measurements.
 
 ### Action Space
 
-The agent controlled:
-
-* Yaw angle of turbine 1
-* Yaw angle of turbine 2
-* Yaw angle of turbine 3
-
-Actions were updated every **10 seconds of simulated time**, allowing the controller to respond continuously to evolving wake behaviour.
+The agent controls the yaw angle of each turbine through setting the angular velocity. Actions are updated every **10 seconds of simulated time**, allowing the controller to respond continuously to evolving wake behaviour.
 
 ### Learning Algorithm
 
-The controller was implemented using modern deep reinforcement learning techniques for continuous control.
+The reinforcement learning controller was implemented using the soft actor-critic technique for continuous control that allows for:
 
-Features included:
-
-* Actor–critic learning
 * Continuous action spaces
 * Policy optimisation
 * Experience replay
 * Parallelised environment sampling
 
-Training was performed on high-performance computing infrastructure using multiple LES environments simultaneously.
+Training was performed on high-performance computing infrastructure using 32 parallel running LES environments each using 128 CPU cores.
 
 ![sac training](/portfolio/sac_training.png)
 
 
 ### Code Coupling
 
-SmartSim and SmartRedis were used to enable the efficient communication between the RL controller and multiple simulation environments running across multiple nodes in parallel on HPC.
+[SmartSim and SmartRedis](https://github.com/CrayLabs/SmartSim) were used to enable the efficient communication between the RL controller and multiple simulation environments running across multiple nodes in parallel on HPC.
 
 ![smartsim](/portfolio/smartsim.png)
 ---
@@ -125,19 +102,19 @@ SmartSim and SmartRedis were used to enable the efficient communication between 
 
 The RL controller was compared against several established approaches:
 
-### Greedy Operation
+#### Greedy Operation
 
 * Standard industrial control strategy
 * Each turbine maximises individual power production
 * No coordination between turbines
 
-### Static Optimal Wake Steering
+#### Static Optimal Wake Steering
 
 * Fixed yaw angles
 * Obtained using Bayesian optimisation
 * Optimised for average conditions
 
-### Wind-Direction-Based Dynamic Control
+#### Wind-Direction-Based Dynamic Control
 
 * Dynamic yaw scheduling
 * Based on global wind measurements
@@ -199,22 +176,6 @@ This demonstrates the value of combining reinforcement learning with turbulence-
 
 ---
 
-## Technical Highlights
-
-* Deep Reinforcement Learning
-* Wind Farm Control
-* Wake Steering
-* Large Eddy Simulation (LES)
-* Winc3D
-* High-Performance Computing (HPC)
-* Actor–Critic Methods
-* Continuous Control
-* Multi-Agent Coordination
-* Turbulent Flow Control
-* Atmospheric Boundary Layers
-* Renewable Energy Optimisation
-
----
 
 ## Impact
 

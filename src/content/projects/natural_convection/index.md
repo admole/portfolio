@@ -49,14 +49,6 @@ Both models represent the entire cooling loop simultaneously:
 * **STAR-CCM+** resolves the three-dimensional flow field.
 * Information is exchanged continuously between the two models using source terms.
 
-```text
-Systems Code (1D)
-        ⇅
- Source-Term Coupling
-        ⇅
- CFD Solver (3D)
-```
-
 The coupling allows the systems code to guide the CFD solution in regions where the flow is well understood, while the CFD provides improved predictions in regions with complex flow behaviour.
 
 ![3D-1D Coupling](/portfolio/systems_couple.png)
@@ -140,23 +132,6 @@ Unlike conventional surrogate modelling, the two simulation fidelities produced 
 Analytical test cases demonstrated that the multi-fidelity framework could successfully combine these heterogeneous datasets, reconstructing detailed flow fields with substantially lower prediction error than either single-fidelity model alone.
 
 ![mixed dimensional surrogate](/portfolio/MDMF.png)
-
----
-
-## Technical Highlights
-
-* Multi-fidelity modelling
-* Systems code–CFD coupling
-* STAR-CCM+
-* Simcenter AMESim
-* Gaussian Process Regression (GPR)
-* Natural convection
-* Thermal hydraulics
-* Nuclear reactor cooling
-* Source-term coupling
-* High-performance computing
-* Multi-scale simulation
-* Reduced-order modelling
 
 ---
 

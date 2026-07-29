@@ -49,19 +49,7 @@ The framework combines:
 * **Surrogate Model:** Non-linear Auto-Regressive Gaussian Process (NARGP)
 * **Optimiser:** Bayesian Optimisation (BO)
 
-Rather than treating the two simulation fidelities independently, the model learns the non-linear relationship between them and determines which fidelity should be evaluated at each optimisation step.
-
-```text
-Wake Model Evaluations
-           ↓
- Multi-Fidelity Surrogate
-           ↓
- Acquisition Function
-           ↓
- Next Evaluation (LF or HF)
-```
-
-This allows expensive LES evaluations to be used only where they provide the greatest benefit.
+Rather than treating the two simulation fidelities independently, the model learns the non-linear relationship between them and determines which fidelity should be evaluated at each optimisation step. This allows expensive LES evaluations to be used only where they provide the greatest benefit.
 
 ![multi-fidelity model](/portfolio/MF_WindFarm.png)
 
@@ -168,22 +156,6 @@ Despite the increased complexity, the framework maintained optimisation performa
 
 ---
 
-## Technical Highlights
-
-* Bayesian Optimisation
-* Gaussian Process Regression
-* Non-linear Auto-Regressive Gaussian Processes (NARGP)
-* Multi-fidelity machine learning
-* Wind farm control optimisation
-* Wake steering
-* Large Eddy Simulation (LES)
-* FLORIS wake modelling
-* Winc3D
-* XCompact3D
-* Actuator disc turbine modelling
-* Surrogate-assisted optimisation
-
----
 
 ## Key Results
 
@@ -213,7 +185,7 @@ By selectively combining wake model evaluations with LES simulations, the framew
 
 This work demonstrates how modern machine learning and optimisation techniques can bridge the gap between engineering wake models and high-fidelity CFD.
 
-The methodology enables more accurate wind farm control optimisation without requiring the prohibitive computational cost of LES-only optimisation, making high-fidelity flow physics more accessible for practical wind energy applications.
+The methodology enables more accurate wind farm control optimisation without requiring the prohibitive computational cost of LES only optimisation, making high-fidelity flow physics more accessible for practical wind energy applications.
 
 Potential applications include:
 

@@ -119,9 +119,7 @@ Key features:
 * Improved reconstruction of flow structures
 * Accurate interpolation between sparse LES samples
 
-### Figure Placeholder
-
-*Predicted velocity profiles compared against LES validation data*
+![multi-fidelity profiles](/portfolio/MFR_profiles.png)
 
 ---
 

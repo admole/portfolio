@@ -3,17 +3,14 @@ title: "AI Chemistry Assistant with Scientific Tool Calling"
 description: "An LLM powered chemistry assistant that is capable of calling molecular simulations through natural language."
 date: "Jun 30 2023"
 demoURL: "https://www.youtube.com/watch?v=NJFQGfBdixs"
-repoURL: "https://github.com/admole/Wind-RL"
+repoURL: "https://github.com/admole/CChAI"
 ---
-
-
-# AI Chemistry Assistant with Scientific Tool Calling
 
 ## Overview
 
 This project explored the use of **Large Language Models (LLMs)** as intelligent interfaces for scientific computing by developing an AI-powered chemistry assistant capable of performing molecular simulations through natural language.
 
-The assistant was built using **LangGraph** to orchestrate tool execution, allowing users to interact with computational chemistry software through a conversational interface. Given a chemistry-related request, the agent could generate molecular structures from SMILES strings, perform quantum chemistry calculations, and produce annotated molecular visualisations.
+The assistant was built using [**LangGraph**](https://www.langchain.com/langgraph) to orchestrate tool execution, allowing users to interact with computational chemistry software through a conversational interface. Given a chemistry-related request, the agent could generate molecular structures from SMILES strings, perform quantum chemistry calculations, and produce annotated molecular visualisations.
 
 ---
 
@@ -30,15 +27,11 @@ The objective of this project was to build an agent capable of:
 
 Rather than acting as a chatbot alone, the LLM functioned as an **orchestrator**, coordinating specialised computational chemistry tools to answer user requests.
 
-### Figure Placeholder
-
-*Overall agent architecture*
-
 ---
 
 ## Agent Architecture
 
-The assistant was implemented as a modular workflow using **LangGraph**.
+The assistant was implemented as a modular workflow using [**LangGraph**](https://www.langchain.com/langgraph).
 
 Each user request passed through several stages:
 
@@ -58,11 +51,7 @@ Formatted Response
 
 The graph-based architecture allowed individual tools to be invoked only when required while maintaining conversational context across interactions.
 
-The system was designed to run entirely locally using **Ollama**, enabling private inference without reliance on external APIs.
-
-### Figure Placeholder
-
-*LangGraph workflow showing tool execution*
+The system was designed to run entirely locally using [**Ollama**](https://ollama.com/), enabling private inference without reliance on external APIs.
 
 ---
 
@@ -91,16 +80,11 @@ SMILES: CCO
 Electronic Energy:
 -154.012 Hartree
 ```
-
-### Figure Placeholder
-
-*Example molecular energy calculation*
-
 ---
 
 ## Molecular Visualisation
 
-The second tool generated molecular structure images using **RDKit**.
+The second tool generated molecular structure images using [**RDKit**](https://www.rdkit.org/).
 
 For each calculation the workflow:
 
@@ -112,9 +96,7 @@ For each calculation the workflow:
 
 This allowed users to obtain both numerical and visual outputs from a single natural language request.
 
-### Figure Placeholder
-
-*Example annotated molecular visualisation*
+![molecules](/portfolio/molecules.png)
 
 ---
 
@@ -153,35 +135,18 @@ The project emphasised modularity and separation of responsibilities.
 
 ### Scientific Tool Layer
 
-* RDKit for molecular representations
-* PySCF for quantum chemistry calculations
+* [RDKit](https://www.rdkit.org/) for molecular representations
+* [PySCF](https://pyscf.org/) for quantum chemistry calculations
 * Image generation and annotation
 
 ### Execution Layer
 
-* LangGraph workflow orchestration
-* Local inference using Ollama
+* [LangGraph](https://www.langchain.com/langgraph) workflow orchestration
+* Local inference using [Ollama](https://ollama.com/)
 * Robust error handling
 * Validation of user inputs
 
 This architecture keeps scientific computation deterministic while allowing the LLM to manage interaction and workflow execution.
-
----
-
-## Technical Highlights
-
-* Python
-* LangGraph
-* Large Language Models (LLMs)
-* Ollama
-* AI Agents
-* Tool Calling
-* RDKit
-* PySCF
-* Quantum Chemistry
-* Molecular Visualisation
-* Scientific Computing
-* Workflow Orchestration
 
 ---
 
@@ -197,11 +162,11 @@ The LangGraph agent dynamically selected and executed the appropriate computatio
 
 ### Local AI Inference
 
-The entire application operated locally using Ollama, avoiding external APIs while improving privacy and reproducibility.
+The entire application operated locally using [Ollama](https://ollama.com/), avoiding external APIs while improving privacy and reproducibility.
 
 ### Extensible Design
 
-The modular workflow allows additional chemistry tools—such as geometry optimisation, frequency analysis or molecular property prediction—to be incorporated with minimal changes to the agent architecture.
+The modular workflow allows additional chemistry tools, such as geometry optimisation, frequency analysis or molecular property prediction, to be incorporated with minimal changes to the agent architecture.
 
 ### Figure Placeholder
 

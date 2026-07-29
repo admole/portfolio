@@ -47,19 +47,9 @@ The workflow consisted of:
 * One-way coupling from RANS to LES
 * Turbulence generation at the RANS–LES interface
 
-```text
-Full-Domain RANS
-        ↓
-Extract Boundary Conditions
-        ↓
-Synthetic Turbulence Generation
-        ↓
-Embedded LES Region
-        ↓
-High-Fidelity Wake Prediction
-```
-
 This approach concentrates computational effort on the downstream wake, where accurate vortex prediction is most important, while retaining the efficiency of RANS elsewhere.
+
+The coupled simulations were performed using [**OpenFOAM**](https://www.openfoam.com/) with data exchanged between the RANS and LES solvers using the [**preCICE**](https://precice.org/) coupling library.
 
 ![Front Wing domain](/portfolio/f1_domain.png)
 
@@ -96,7 +86,6 @@ The implementation included:
 * Adaptive eddy placement
 * Length-scale control using local turbulence quantities
 
-The coupled simulations were performed using **OpenFOAM** with data exchanged between the RANS and LES solvers using the **preCICE** coupling library.
 
 ![SEM](/portfolio/f1_sem.png)
 

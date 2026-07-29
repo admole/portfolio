@@ -12,9 +12,9 @@ repoURL: "https://github.com/markhorn-dev/astro-sphere"
 
 ## Overview
 
-This project investigates how **high-fidelity computational simulations** can be combined with **Bayesian optimisation** to improve wind farm operation. Rather than optimising solely for energy production, the work considers the competing objectives of increasing power output while reducing structural fatigue on wind turbine blades.
+This ongoing project investigates how **high-fidelity computational simulations** can be combined with **Bayesian optimisation** to improve wind farm operation. Rather than optimising solely for energy production, the competing objectives of increasing power output while reducing structural fatigue on wind turbine blades are considered.
 
-The project integrates turbulent flow simulation, structural dynamics, and optimisation into a single automated workflow capable of evaluating complex wind farm control strategies on high-performance computing (HPC) systems.
+By integrating turbulent flow simulation, structural dynamics, and optimisation on high performance computing (HPC) systems, a single automated workflow is capable of evaluating complex wind farm control strategies.
 
 ![Wind Turbine Video](/portfolio/wt.gif)
 
@@ -24,9 +24,9 @@ The project integrates turbulent flow simulation, structural dynamics, and optim
 
 Wind turbine wakes reduce the wind speed available to downstream turbines while increasing turbulence intensity, leading to lower power production and higher fatigue loading.
 
-A common control strategy is **wake steering**, where upstream turbines are intentionally yawed away from the wind to redirect their wakes. Although this can improve overall wind farm efficiency, yaw misalignment also changes the aerodynamic loading on the blades and may increase long-term structural fatigue.
+A common control strategy is **wake steering**, where upstream turbines are intentionally yawed away from the wind to redirect their wakes. Although this can improve overall wind farm efficiency, yaw misalignment also changes the aerodynamic loading on the blades and may increase long term structural fatigue.
 
-Understanding this trade-off requires simulations that resolve both:
+Understanding this trade off requires simulations that resolve both:
 
 - atmospheric turbulence and wake dynamics
 - structural deformation of flexible wind turbine blades
@@ -44,7 +44,7 @@ The project couples several advanced simulation tools into a fully automated mul
 
 ### Large Eddy Simulation (LES) 
 
-The atmospheric flow is simulated using **Xcompact3d**, a high-order finite-difference CFD solver that resolves turbulent structures using Large Eddy Simulation (LES).
+The atmospheric flow is simulated using [**Xcompact3d**](https://www.incompact3d.com/), a high-order finite-difference CFD solver that resolves turbulent structures using Large Eddy Simulation (LES).
 
 The simulations include:
 
@@ -55,18 +55,11 @@ The simulations include:
 
 ### Fluid-Structure Interaction
 
-Rather than assuming rigid blades, the aerodynamic model is coupled to **BeamDyn**, allowing the blades to deform under aerodynamic loading.
+Rather than assuming rigid blades, the aerodynamic model is coupled to [**BeamDyn**](https://openfast.readthedocs.io/en/dev/source/user/beamdyn/index.html), allowing the blades to deform under aerodynamic loading.
 
 ![FSI Diagram](/portfolio/fsi_diagram.png)
 
-This two-way fluid-structure interaction captures how blade flexibility influences:
-
-- aerodynamic forces
-- wake development
-- power generation
-- fatigue loading
-
-providing a much more realistic representation of turbine behaviour than conventional rigid-blade models.
+This two-way fluid-structure interaction captures how blade flexibility influences the aerodynamic forces, wake development and power generation whilst enabling calculation of the fatigue loading. This provides a more realistic representation of turbine behaviour than conventional rigid-blade models.
 
 
 ![slices of wind around turbines](/portfolio/3t_slices.png)
@@ -77,15 +70,14 @@ providing a much more realistic representation of turbine behaviour than convent
 
 Each LES-FSI simulation requires substantial HPC resources, making exhaustive parameter searches impractical.
 
-To address this, the project employs **Multi-Objective Bayesian Optimisation (MOBO)** using Gaussian Process surrogate models implemented with **BoTorch**.
+To address this, the project employs **Multi-Objective Bayesian Optimisation** using Gaussian Process surrogate models implemented with [**BoTorch**](https://botorch.org/).
 
 The optimisation seeks Pareto-optimal yaw control strategies that balance:
 
 - maximising total wind farm power output
 - minimising structural fatigue and maintenance requirements
 
-By intelligently selecting new simulation points using Expected Hypervolume Improvement (EHVI), the optimiser dramatically reduces the number of expensive simulations required.
-
+By intelligently selecting new simulation points using Expected Hypervolume Improvement, the optimiser dramatically reduces the number of expensive simulations required.
 
 ![MOBO](/portfolio/mobo.png)
 
@@ -106,7 +98,7 @@ I developed a Python framework that bridges **BoTorch** with **Slurm**, allowing
 - updating Gaussian Process models
 - selecting the next optimal simulation
 
-This automation enables long-running optimisation campaigns involving hundreds of computationally expensive simulations with minimal manual intervention.
+This automation enables long-running optimisation campaigns involving many computationally expensive simulations with minimal manual intervention.
 
 ---
 
