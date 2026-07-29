@@ -70,9 +70,9 @@ const {
     }, delay);
   }
 
-  document.querySelectorAll(".typewriter").forEach(initTypewriter);
+  document.querySelectorAll<HTMLElement>(".typewriter").forEach(initTypewriter);
 
   document.addEventListener("astro:after-swap", () => {
-    document.querySelectorAll(".typewriter").forEach(initTypewriter);
+    document.querySelectorAll<HTMLElement>(".typewriter").forEach(initTypewriter);
   });
 </script>
