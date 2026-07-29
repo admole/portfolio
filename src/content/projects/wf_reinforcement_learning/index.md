@@ -12,7 +12,7 @@ Modern wind farms typically operate each turbine independently, maximising local
 
 This project developed a **deep reinforcement learning (RL) controller** capable of dynamically coordinating multiple wind turbines using real-time flow information from high-fidelity simulations. By learning collaborative wake steering strategies, the controller increased total wind farm power production by over **4%**, substantially outperforming conventional static control approaches.
 
-![rl gif](/RL.gif)
+![rl gif](/portfolio/RL.gif)
 
 ---
 
@@ -34,7 +34,7 @@ While static optimisation can improve performance, it cannot respond to:
 
 The goal of this project was to develop a controller capable of making continuous decisions based on the evolving flow field and coordinating all turbines simultaneously.
 
-![3 turbine diagram](/3_turbine_diagram.png)
+![3 turbine diagram](/portfolio/3_turbine_diagram.png)
 
 ---
 
@@ -54,7 +54,7 @@ At each control interval:
 
 Over time, the agent learns coordinated strategies that improve overall energy production rather than individual turbine performance.
 
-![Diagram of wind farm control by reinforcement learning](/WindFarm_RL_Diagram.png)
+![Diagram of wind farm control by reinforcement learning](/portfolio/WindFarm_RL_Diagram.png)
 
 ---
 
@@ -111,14 +111,14 @@ Features included:
 
 Training was performed on high-performance computing infrastructure using multiple LES environments simultaneously.
 
-![sac training](/sac_training.png)
+![sac training](/portfolio/sac_training.png)
 
 
 ### Code Coupling
 
 SmartSim and SmartRedis were used to enable the efficient communication between the RL controller and multiple simulation environments running across multiple nodes in parallel on HPC.
 
-![smartsim](/smartsim.png)
+![smartsim](/portfolio/smartsim.png)
 ---
 
 ## Baseline Control Strategies
@@ -161,7 +161,7 @@ The reinforcement learning controller achieved:
 
 The RL controller nearly doubled the gains achieved using static optimal wake steering.
 
-![rl power](/RL_power.png)
+![rl power](/portfolio/RL_power.png)
 
 ---
 
@@ -178,7 +178,7 @@ The learned strategy:
 
 Rather than following a fixed control law, the controller continuously adjusted turbine settings based on the current state of the wind farm.
 
-![rl gif](/RL.gif)
+![rl gif](/portfolio/RL.gif)
 
 ---
 
@@ -195,7 +195,7 @@ Instead it learned to:
 
 This demonstrates the value of combining reinforcement learning with turbulence-resolving simulations.
 
-![gusts](/gusts.png)
+![gusts](/portfolio/gusts.png)
 
 ---
 

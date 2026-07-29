@@ -16,7 +16,7 @@ This project investigates how **high-fidelity computational simulations** can be
 
 The project integrates turbulent flow simulation, structural dynamics, and optimisation into a single automated workflow capable of evaluating complex wind farm control strategies on high-performance computing (HPC) systems.
 
-![Wind Turbine Video](/wt.gif)
+![Wind Turbine Video](/portfolio/wt.gif)
 
 ---
 
@@ -33,7 +33,7 @@ Understanding this trade-off requires simulations that resolve both:
 
 while remaining computationally feasible for optimisation.
 
-![ALM BeamDyn](/alm_beamdyn.png)
+![ALM BeamDyn](/portfolio/alm_beamdyn.png)
 
 ---
 
@@ -57,7 +57,7 @@ The simulations include:
 
 Rather than assuming rigid blades, the aerodynamic model is coupled to **BeamDyn**, allowing the blades to deform under aerodynamic loading.
 
-![FSI Diagram](/fsi_diagram.png)
+![FSI Diagram](/portfolio/fsi_diagram.png)
 
 This two-way fluid-structure interaction captures how blade flexibility influences:
 
@@ -69,7 +69,7 @@ This two-way fluid-structure interaction captures how blade flexibility influenc
 providing a much more realistic representation of turbine behaviour than conventional rigid-blade models.
 
 
-![slices of wind around turbines](/3t_slices.png)
+![slices of wind around turbines](/portfolio/3t_slices.png)
 
 ---
 
@@ -87,7 +87,7 @@ The optimisation seeks Pareto-optimal yaw control strategies that balance:
 By intelligently selecting new simulation points using Expected Hypervolume Improvement (EHVI), the optimiser dramatically reduces the number of expensive simulations required.
 
 
-![MOBO](/mobo.png)
+![MOBO](/portfolio/mobo.png)
 
 
 ---

@@ -27,7 +27,7 @@ Traditionally this means:
 
 In this study, the parameter of interest was **inlet yaw angle**, with flow conditions varying between 0° and 30°. LES accurately captured the underlying flow structures, while RANS provided a cheaper but less accurate approximation.
 
-![tandem cube geometry](/tandem_cube_geometry.png)
+![tandem cube geometry](/portfolio/tandem_cube_geometry.png)
 
 ---
 
@@ -68,7 +68,7 @@ Two surrogate modelling approaches were investigated:
 * Hyperparameters optimised using cross-validation
 * Trained using L-BFGS optimisation with L2 regularisation
 
-![multi-fidelity regression](/MFR.png)
+![multi-fidelity regression](/portfolio/MFR.png)
 
 ---
 
@@ -104,7 +104,7 @@ The first stage focused on predicting:
 
 The multi-fidelity models consistently outperformed equivalent single-fidelity models, accurately predicting flow behaviour at yaw angles not included in the LES training set.
 
-![multi-fidelity probe](/MFR_probe.png)
+![multi-fidelity probe](/portfolio/MFR_probe.png)
 
 ---
 
@@ -136,7 +136,7 @@ For each flow condition:
 * Major wake structures and recirculation regions were reproduced accurately
 * Results closely matched LES while requiring only surrogate inference time
 
-![multi-fidelity slice](/MFR_slice.png)
+![multi-fidelity slice](/portfolio/MFR_slice.png)
 
 ---
 

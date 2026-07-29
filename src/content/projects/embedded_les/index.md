@@ -12,7 +12,7 @@ Large Eddy Simulation (LES) provides highly accurate predictions of turbulent fl
 
 The work focused on developing an embedded LES methodology in **OpenFOAM**, implementing synthetic turbulence generation at the RANS–LES interface, and validating the approach on both canonical turbulent channel flow and the complex separated flow around tandem wall-mounted cubes.
 
-![ELES Diagram](/ELES_cube.png)
+![ELES Diagram](/portfolio/ELES_cube.png)
 ---
 
 ## The Challenge
@@ -57,7 +57,7 @@ Resolved Turbulent Flow
 
 This approach concentrates computational effort where it provides the greatest improvement in solution accuracy.
 
-![ELES Diagram](/ELES.png)
+![ELES Diagram](/portfolio/ELES.png)
 
 
 ---
@@ -76,7 +76,7 @@ These quantities are used to initialise the LES region through an enhanced **Syn
 
 The methodology was implemented within **OpenFOAM**, providing a flexible framework for hybrid turbulence simulations.
 
-![SEM Diagram](/sem.png)
+![SEM Diagram](/portfolio/sem.png)
 
 ---
 
@@ -86,7 +86,7 @@ Two seperate instances of the OpenFOAM solver were used to solve the RANS and LE
 
 This requires a copling of the two  solvers which was implemented using the PreCICE coupling libary to exchange the required information between the solvers.
 
-![PreCICE Diagram](/precice.png)
+![PreCICE Diagram](/portfolio/precice.png)
 
 
 ---
@@ -109,7 +109,7 @@ The embedded LES accurately reproduced reference DNS statistics while demonstrat
 ### Figure Placeholder
 
 *Comparison of channel flow velocity and Reynolds stress profiles*
-![ELES Channel](/eles_channel.png)
+![ELES Channel](/portfolio/eles_channel.png)
 
 ---
 
@@ -135,7 +135,7 @@ Compared with conventional RANS, the embedded LES captured:
 * 
 The embedded LES reproduced the key flow features while requiring significantly less computational effort than a full-domain LES simulation.
 
-![ELES Cube](/eles_cube_2.png)
+![ELES Cube](/portfolio/eles_cube_2.png)
 
 ---
 

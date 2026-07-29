@@ -13,7 +13,7 @@ Wind turbines operating in the wake of upstream turbines experience lower wind s
 
 This project developed a **multi-fidelity Bayesian optimisation framework** that combines fast analytical wake models with high-fidelity Large Eddy Simulations (LES) to identify optimal turbine control strategies. The approach achieves optimisation results comparable to LES-only methods while significantly reducing computational cost.
 
-![yaw-animation](/over_iso.gif)
+![yaw-animation](/portfolio/over_iso.gif)
 
 ---
 
@@ -34,7 +34,7 @@ High-fidelity LES captures:
 
 However, LES is too computationally expensive to evaluate every candidate design during optimisation.
 
-![wind farm fidelities](/WindFarm_fidelities.png)
+![wind farm fidelities](/portfolio/WindFarm_fidelities.png)
 
 ---
 
@@ -63,7 +63,7 @@ Wake Model Evaluations
 
 This allows expensive LES evaluations to be used only where they provide the greatest benefit.
 
-![multi-fidelity model](/MF_WindFarm.png)
+![multi-fidelity model](/portfolio/MF_WindFarm.png)
 
 ---
 
@@ -110,7 +110,7 @@ Key features:
 
 LES provides substantially more accurate predictions of wake behaviour but at a much higher computational cost than analytical wake models.
 
-![adm 3d](/3d_ADM.png)
+![adm 3d](/portfolio/3d_ADM.png)
 
 ---
 
@@ -131,7 +131,7 @@ For each optimisation iteration:
 
 This adaptive strategy focuses computational effort where it delivers the largest improvement in optimisation performance.
 
-![bosteps](/bo_steps.png)
+![bosteps](/portfolio/bo_steps.png)
 
 ---
 
@@ -164,7 +164,7 @@ Challenges included:
 
 Despite the increased complexity, the framework maintained optimisation performance while reducing the number of expensive LES simulations required.
 
-![result of bo](/BO_result.png)
+![result of bo](/portfolio/BO_result.png)
 
 ---
 

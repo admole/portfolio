@@ -14,7 +14,7 @@ As part of a research collaboration with **Rolls-Royce** and the **University of
 
 Alongside developing a novel coupling framework between systems codes and CFD, the project also explored **multi-fidelity surrogate modelling**, combining low-cost system simulations with high-fidelity CFD to efficiently predict complex flow behaviour across a design space.
 
-![Natural Convection Loop](/cooling_loop.png)
+![Natural Convection Loop](/portfolio/cooling_loop.png)
 ---
 
 ## The Challenge
@@ -33,7 +33,7 @@ Each approach has limitations:
 
 This project investigated how both approaches could be combined to obtain accurate predictions at practical computational cost.
 
-![3D-1D Coupling](/3D-1D.png)
+![3D-1D Coupling](/portfolio/3D-1D.png)
 
 ---
 
@@ -59,7 +59,7 @@ Systems Code (1D)
 
 The coupling allows the systems code to guide the CFD solution in regions where the flow is well understood, while the CFD provides improved predictions in regions with complex flow behaviour.
 
-![3D-1D Coupling](/systems_couple.png)
+![3D-1D Coupling](/portfolio/systems_couple.png)
 
 ---
 
@@ -97,8 +97,8 @@ This simple case demonstrated that the momentum source term:
 
 Importantly, the three-dimensional flow structure remained unchanged while the bulk quantities converged towards the systems-code solution.
 
-![pipe mesh](/pipe_mesh.png)
-![pipe profile](/pipe_profile.png)
+![pipe mesh](/portfolio/pipe_mesh.png)
+![pipe profile](/portfolio/pipe_profile.png)
 
 
 ### Industrial Test Facility
@@ -114,7 +114,7 @@ This demonstrated the practical challenges of deploying coupled CFD simulations 
 The coupled simulations demonstrated stable interaction between CFD and the systems model while accurately reproducing the thermal behaviour of the loop.
 The work highlighted both the potential and the engineering challenges associated with large-scale coupled simulations.
 
-![test facility result](/test_facility.png)
+![test facility result](/portfolio/test_facility.png)
 ---
 
 ## Multi-Fidelity Surrogate Modelling
@@ -139,7 +139,7 @@ Unlike conventional surrogate modelling, the two simulation fidelities produced 
 
 Analytical test cases demonstrated that the multi-fidelity framework could successfully combine these heterogeneous datasets, reconstructing detailed flow fields with substantially lower prediction error than either single-fidelity model alone.
 
-![mixed dimensional surrogate](/MDMF.png)
+![mixed dimensional surrogate](/portfolio/MDMF.png)
 
 ---
 
